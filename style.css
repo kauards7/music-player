@@ -1,0 +1,117 @@
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+
+    
+}
+
+:root{
+    --base-color: #2a2141;
+    --text-color: #FFFFFF;
+    --text-color-opacity: rgba(255, 255,255,0.6)
+}
+
+body{
+    background-color: var(--base-color);
+    color: var(--text-color);
+    font-family: "Roboto", sans-serif;
+    font-size: 1.6rem;
+
+    height: 100vh;
+
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+}
+
+.content {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 2.5rem; 
+    margin: 0 auto;
+}
+
+
+.music {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    gap: 3rem;
+}
+
+.music img{
+    width: 8rem;
+    border-radius: 0.6rem;
+}
+
+.music .music-info {
+    display: flex;
+    flex-direction: column;
+}
+
+.music .music-info h1{
+    font-size: 2rem;
+}
+
+.music .music-info span{
+    font-size: 1.4rem;
+}
+
+.buttons {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+    width: 100%;
+    
+    
+}
+
+.buttons button{
+    font-size: 3rem;
+    background-color: transparent;
+    color: var(--text-color);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border: none;
+    cursor: pointer;
+}
+
+.progress{
+    position: relative;
+    width: 100%;
+}
+
+.progress .progress-bg{
+    height: 0.6rem;
+    border-radius: 0.96rem;
+    background-color: var(--text-color-opacity);
+    width: 100%;
+}
+
+.progress .progress-bar {
+    position:absolute;
+    top: 0;
+    width: 100%;
+}
+
+.progress .progress-bar::-webkit-slider-runnable-track {
+    height: 0.6rem;
+    appearance: none;
+    border-radius: 0.96rem;
+    background-color: var(--text-color-opacity);
+    position: relative;
+}
+
+.progress .progress-bar ::-webkit-slider-thumb {
+    appearance: none !important;
+    -webkit-appearance: none !important;
+    height: 0.6rem;
+    border-radius: 0.96rem;
+    background-color: var(--text-color);
+    position:absolute;
+    left: 0;
+}
