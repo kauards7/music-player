@@ -79,6 +79,9 @@ body{
     border: none;
     cursor: pointer;
 }
+.player-footer{
+    width: 100%;
+}
 
 .progress{
     position: relative;
@@ -98,7 +101,15 @@ body{
     width: 100%;
 }
 
-.progress .progress-bar::-webkit-slider-runnable-track {
+input[type="range"] {
+    -webkit-appearance: none;
+    appearance: none;
+    width: 19rem;
+    background: transparent;
+    cursor: pointer;
+}
+
+input[type="range"]::-webkit-slider-runnable-track {
     height: 0.6rem;
     appearance: none;
     border-radius: 0.96rem;
@@ -106,7 +117,7 @@ body{
     position: relative;
 }
 
-.progress .progress-bar ::-webkit-slider-thumb {
+input[type="range"]::-webkit-slider-thumb {
     appearance: none !important;
     -webkit-appearance: none !important;
     height: 0.6rem;
@@ -114,4 +125,47 @@ body{
     background-color: var(--text-color);
     position:absolute;
     left: 0;
+}
+
+.time {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+    width: 100%;
+    padding-top: 1rem;
+}
+
+.time span{
+    color: var(--text-color-opacity);
+    font-size: 1rem;
+}
+
+@media (max-width:480px) {
+    .player-footer {
+        display: none;
+    }
+}
+
+@media (max-width:500px) {
+
+    .content{
+        width: 70%;
+    }
+
+    .music{
+        flex-direction: column;
+        width: 100%;
+        align-items: flex-start;
+        
+    }
+
+    .music img{
+        width: 100%;
+    }
+
+    .player-footer{
+        display: block;   
+    }
+
 }
