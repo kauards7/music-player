@@ -15,31 +15,37 @@
 <body>
     <div class="content">
         <div class="music">
-            <img src="./assets/music-img.png" alt="Capa do álbum que contém música"/>
+            <img 
+                id="music-album" 
+                src="./assets/music-img.png" 
+                alt="Capa do álbum que contém música"
+                />
             <div class="music-info"> 
-                <h1>Música</h1>
-                <span>Banda X</span>
+                <audio id="music-player"></audio>
+                <h1 id="music-title">Música</h1>
+                <span id="banda">Banda X</span>
             </div>
            
         </div>
          <div class="buttons"> 
-                <button><ion-icon name="play-back-outline"></ion-icon></button>
-                <button><ion-icon name="play-outline"></ion-icon></button>
-                <button><ion-icon name="play-forward-outline"></ion-icon> </button>
+                <button id="music-back"><ion-icon name="play-back-outline"></ion-icon></button>
+                <button id="play-button"><ion-icon name="play-outline"></ion-icon></button>
+                <button id="music-next"><ion-icon name="play-forward-outline"></ion-icon> </button>
             </div>
     <div class="player-footer">
         <div class="progress">
             <div class="progress-bg"></div>
-            <input type="range" class="progress-bar"/>
+            <input type="range" class="progress-bar" id="progess-bar"/>
         </div>
     
         <div class="time">
-            <span>00:00</span>
-            <span>04:30</span>
+            <span id="time-start">00:00</span>
+            <span id="time-end">04:30</span>
         </div>
     </div>
     </div>
-<script type="module" src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.esm.js"></script>
-<script nomodule src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.js"></script>
+    <script type="module" src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.esm.js"></script>
+    <script nomodule src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.js"></script>
+    <script src="./scripts.js"></script>
 </body>
 </html>
