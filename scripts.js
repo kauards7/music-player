@@ -5,6 +5,7 @@ const banda = document.getElementById("banda")
 
 const musickBack = document.getElementById("music-back")
 const playButton = document.getElementById("play-button")
+const musicPause = document.getElementById ("music-pause")
 const musicNext = document.getElementById("music-next")
 
 const progressBar = document.getElementById("progress-bar")
@@ -44,4 +45,17 @@ getMusic()
 
 playButton.addEventListener("click", function () {
     musicPlayer.play()
+    playButton.style.display = "none"
+    musicPause.style.display = "inline-block"
+    
+})
+
+musicPause.addEventListener("click", function () {
+    musicPlayer.pause(); 
+    musicPause.style.display = "none"
+    playButton.style.display = "inline-block"
+});
+
+musicNext.addEventListener("click", function() {
+    
 })

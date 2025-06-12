@@ -69,6 +69,10 @@ body{
     
 }
 
+.buttons #music-pause {
+    display: none;
+}
+
 .buttons button{
     font-size: 3rem;
     background-color: transparent;
