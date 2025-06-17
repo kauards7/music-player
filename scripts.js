@@ -3,10 +3,10 @@ const musicAlbum = document.getElementById("music-album")
 const musicTitle = document.getElementById("music-title")
 const banda = document.getElementById("banda")
 
-const musickBack = document.getElementById("music-back")
-const playButton = document.getElementById("play-button")
-const musicPause = document.getElementById ("music-pause")
-const musicNext = document.getElementById("music-next")
+const musickBackButton = document.getElementById("music-back")
+const musicplayButton = document.getElementById("play-button")
+const musicPauseButton = document.getElementById("music-pause")
+const musicNextButton = document.getElementById("music-next")
 
 const progressBar = document.getElementById("progress-bar")
 const timeStart = document.getElementById("time-start")
@@ -34,28 +34,54 @@ const musicas =  [
     }
 ]
 
-function getMusic(){
-    musicPlayer.src = musicas[0].caminhoDaMusica
-    musicAlbum.src = musicas[0].album
-    musicTitle.innerText = musicas[0].tituloDaMusica
-    banda.innerText = musicas[0].banda
+var musicAtual = 0
+
+function getMusic(indexMusic){
+    musicPlayer.src = musicas[indexMusic].caminhoDaMusica
+    musicAlbum.src = musicas[indexMusic].album
+    musicTitle.innerText = musicas[indexMusic].tituloDaMusica
+    banda.innerText = musicas[indexMusic].banda
+
+    musicAtual = indexMusic
 }
 
-getMusic() 
+getMusic(musicAtual) 
 
-playButton.addEventListener("click", function () {
+musicplayButton.addEventListener("click", function () {
     musicPlayer.play()
-    playButton.style.display = "none"
-    musicPause.style.display = "inline-block"
+    musicPauseButton.style.display = "inline-block"
+    musicplayButton.style.display = "none"
     
 })
 
-musicPause.addEventListener("click", function () {
+musicPauseButton.addEventListener("click", function () {
     musicPlayer.pause(); 
-    musicPause.style.display = "none"
-    playButton.style.display = "inline-block"
+    musicplayButton.style.display = "inline-block"
+    musicPauseButton.style.display = "none"
 });
 
-musicNext.addEventListener("click", function() {
-    
+function musicNext() {
+    getMusic(musicAtual + 1)
+
+    musicPlayer.play()
+
+}
+
+musicNextButton.addEventListener("click", function() {
+  musicNext()
+  
+  
+})
+
+function musickBack() {
+    getMusic(musicAtual - 1)
+
+    musicPlayer.play()
+
+}
+
+musickBackButton.addEventListener("click", function() {
+  musickBack()
+  
+  
 })
