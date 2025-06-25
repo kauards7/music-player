@@ -51,6 +51,9 @@ musicplayButton.addEventListener("click", function () {
     musicPlayer.play()
     musicPauseButton.style.display = "inline-block"
     musicplayButton.style.display = "none"
+    progressBar.style.background = `linear-gradient(to right, #7c3aed 0%, #7c3aed 0%, var(--text-color-opacity) 0%, var(--text-color-opacity) 100%)`
+    progressBar.value = 0;
+
     
 })
 
@@ -83,5 +86,45 @@ function musickBack() {
 musickBackButton.addEventListener("click", function() {
   musickBack()
   
-  
 })
+
+musicPlayer.addEventListener("timeupdate", function () {
+   
+    const porcentagem = (musicPlayer.currentTime / musicPlayer.duration) * 100
+    progressBar.value = porcentagem || 0
+
+    
+    timeStart.innerText = formatarTempo(musicPlayer.currentTime)
+    timeEnd.innerText = formatarTempo(musicPlayer.duration)
+})
+
+function formatarTempo(segundos) {
+    if (isNaN(segundos)) return "00:00"
+    
+    const minutos = Math.floor(segundos / 60)
+    const segundosRestantes = Math.floor(segundos % 60)
+    
+    return `${String(minutos).padStart(2, '0')}:${String(segundosRestantes).padStart(2, '0')}`
+}
+
+progressBar.addEventListener("input", function () {
+    const novoTempo = (progressBar.value / 100) * musicPlayer.duration
+    musicPlayer.currentTime = novoTempo
+})
+
+musicPlayer.addEventListener("timeupdate", function () {
+    const porcentagem = (musicPlayer.currentTime / musicPlayer.duration) * 100 || 0;
+    progressBar.value = porcentagem;
+
+    timeStart.innerText = formatarTempo(musicPlayer.currentTime);
+    timeEnd.innerText = formatarTempo(musicPlayer.duration);
+
+    if (!isNaN(musicPlayer.duration)) {
+        progressBar.style.background = `linear-gradient(to right, #7c3aed 0%, #7c3aed ${porcentagem}%, var(--text-color-opacity) ${porcentagem}%, var(--text-color-opacity) 100%)`;
+    }
+});
+
+window.onload = () => {
+  progressBar.value = 0;
+  progressBar.style.background = `linear-gradient(to right, #7c3aed 0%, #7c3aed 0%, rgba(255,255,255,0.6) 0%, rgba(255,255,255,0.6) 100%)`;
+}

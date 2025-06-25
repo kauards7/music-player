@@ -86,49 +86,50 @@ body{
 .player-footer{
     width: 100%;
 }
-
-.progress{
-    position: relative;
-    width: 100%;
-}
-
-.progress .progress-bg{
-    height: 0.6rem;
-    border-radius: 0.96rem;
-    background-color: var(--text-color-opacity);
-    width: 100%;
+.progress {
+  position: relative;
+  width: 100%;
 }
 
 .progress .progress-bar {
-    position:absolute;
-    top: 0;
-    width: 100%;
+  position: relative; 
+  width: 100%;
+  height: 6px;
+  border-radius: 3px;
+  background: var(--text-color-opacity);
+  cursor: pointer;
+  -webkit-appearance: none;
+  appearance: none;
+  outline: none;
+  background: linear-gradient(to right, #7c3aed 0%, #222 0%)
+ 
 }
 
-input[type="range"] {
-    -webkit-appearance: none;
-    appearance: none;
-    width: 19rem;
-    background: transparent;
-    cursor: pointer;
+.progress .progress-bar::-webkit-slider-thumb {
+  -webkit-appearance: none;
+  appearance: none;
+  width: 14px;
+  height: 14px;
+  border-radius: 50%;
+  background: #fff;
+  border: 2px solid #7c3aed;
+  margin-top: -4px;
+  box-shadow: 0 0 5px #7c3aed, 0 0 10px #7c3aed;
+  cursor: pointer;
+  position: relative;
+  z-index: 10;
 }
 
-input[type="range"]::-webkit-slider-runnable-track {
-    height: 0.6rem;
-    appearance: none;
-    border-radius: 0.96rem;
-    background-color: var(--text-color-opacity);
-    position: relative;
-}
-
-input[type="range"]::-webkit-slider-thumb {
-    appearance: none !important;
-    -webkit-appearance: none !important;
-    height: 0.6rem;
-    border-radius: 0.96rem;
-    background-color: var(--text-color);
-    position:absolute;
-    left: 0;
+.progress .progress-bar::-moz-range-thumb {
+  width: 14px;
+  height: 14px;
+  border-radius: 50%;
+  background: #fff;
+  border: 2px solid #7c3aed;
+  box-shadow: 0 0 5px #7c3aed, 0 0 10px #7c3aed;
+  cursor: pointer;
+  position: relative;
+  z-index: 10;
 }
 
 .time {
