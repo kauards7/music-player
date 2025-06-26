@@ -14,6 +14,8 @@
 </head>
 <body>
     <div class="content">
+      
+        <div>
         <div class="music">
             <img 
                 id="music-album" 
@@ -44,7 +46,16 @@
             <span id="time-start">00:00</span>
             <span id="time-end">01:42</span>
         </div>
-    </div>
+        </div>
+        </div>
+        <div class="mixer-volum">
+            <ion-icon name="volume-high-outline"></ion-icon>
+             <div class="volume">
+            <div class="volume-bg"></div>
+            <input type="range" class="volume-bar" id="volume-bar" value="0" min="0" max="100"/>
+        </div>
+            <ion-icon name="volume-off-outline"></ion-icon>
+        </div>
     </div>
     <script type="module" src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.esm.js"></script>
     <script nomodule src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.js"></script>

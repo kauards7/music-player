@@ -12,6 +12,8 @@ const progressBar = document.getElementById("progress-bar")
 const timeStart = document.getElementById("time-start")
 const timeEnd = document.getElementById("time-end")
 
+const volumeBar = document.getElementById("volume-bar");
+
 const musicas =  [
     {
         caminhoDaMusica: "./music/m1.mp3",
@@ -124,7 +126,20 @@ musicPlayer.addEventListener("timeupdate", function () {
     }
 });
 
+
 window.onload = () => {
-  progressBar.value = 0;
-  progressBar.style.background = `linear-gradient(to right, #7c3aed 0%, #7c3aed 0%, rgba(255,255,255,0.6) 0%, rgba(255,255,255,0.6) 100%)`;
-}
+    progressBar.value = 0;
+    progressBar.style.background = `linear-gradient(to right, #7c3aed 0%, #7c3aed 0%, rgba(255,255,255,0.6) 0%, rgba(255,255,255,0.6) 100%)`;
+
+    volumeBar.style.background = `linear-gradient(to right, #7c3aed 0%, #7c3aed ${volumeBar.value}%, #ddd ${volumeBar.value}%, #ddd 100%)`;
+    musicPlayer.volume = volumeBar.value / 100;
+}; 
+
+  musicPlayer.volume = volumeBar.value / 100;
+
+  volumeBar.addEventListener("input", () => {
+    musicPlayer.volume = volumeBar.value / 100;
+  });
+
+
+
