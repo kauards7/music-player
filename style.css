@@ -205,57 +205,56 @@ body{
 }
 
 .volume {
-  position: relative;
-  width: 100%;
   display: flex;
   justify-content: center;
   align-items: center;
-  flex-grow: 1;             
+  height: 150px;
 }
 
 .volume-bar {
   -webkit-appearance: none;
-  width: 12rem;            
-  height: 0.375rem;        
+  appearance: none;
+  width: 150px;
+  height: 6px;
   transform: rotate(-90deg);
-  cursor: pointer;
-  background: var(--background-color-opacity);
-  border-radius: 0.1875rem; 
+  border-radius: 3px;
+  background: transparent; /* ESSENCIAL para JS controlar */
   outline: none;
 }
 
-.volume-bar::-moz-range-track {
-  background: var(--background-color-opacity);
-  height: 0.375rem;
-  border-radius: 0.1875rem;
-}
-
 .volume-bar::-webkit-slider-runnable-track {
-  background: #888;
-  height: 0.375rem;
-  border-radius: 0.1875rem;
+  height: 6px;
+  background: transparent; /* também limpa o track default */
+  border-radius: 3px;
 }
 
 .volume-bar::-webkit-slider-thumb {
   -webkit-appearance: none;
-  appearance: none;
-  width: 1rem;             
-  height: 1rem;
-  background: #eee;
+  width: 14px;
+  height: 14px;
   border-radius: 50%;
-  border: 0.0625rem solid #555; 
-  margin-top: -0.3125rem;  
+  background: #fff;
+  border: 2px solid #7c3aed;
+  margin-top: -4px;
   cursor: pointer;
 }
 
+.volume-bar::-moz-range-track {
+  height: 6px;
+  background: transparent;
+  border-radius: 3px;
+}
+
 .volume-bar::-moz-range-thumb {
-  width: 1rem;
-  height: 1rem;
-  background: #eee;
+  width: 14px;
+  height: 14px;
   border-radius: 50%;
-  border: 0.0625rem solid #555;
+  background: #fff;
+  border: 2px solid #7c3aed;
   cursor: pointer;
 }
+
+
 
 @media (max-width:480px) {
     .player-footer {

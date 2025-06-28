@@ -160,18 +160,29 @@ progressBar.addEventListener("input", function () {
 
 
 window.onload = () => {
+  const volumeBar = document.getElementById("volume-bar");
+  const progressBar = document.getElementById("progress-bar");
+
+  // Atualiza visual da barra de volume
+  function atualizarBarraVolume() {
+    const value = volumeBar.value;
+    volumeBar.style.background = `linear-gradient(to right, #7c3aed 0%, #7c3aed ${value}%, #ddd ${value}%, #ddd 100%)`;
+  }
+
+  // Evento para atualizar volume e barra visual
+  volumeBar.addEventListener("input", () => {
+    musicPlayer.volume = volumeBar.value / 100;
+    atualizarBarraVolume();
+  });
+
+  // Inicia volume visual e funcional
+  atualizarBarraVolume();
+  musicPlayer.volume = volumeBar.value / 100;
+
+  // Inicializa a barra de progresso vazia
   progressBar.value = 0;
   progressBar.style.background = `linear-gradient(to right, #7c3aed 0%, #7c3aed 0%, rgba(255,255,255,0.6) 0%, rgba(255,255,255,0.6) 100%)`;
 
-  volumeBar.style.background = `linear-gradient(to right, #7c3aed 0%, #7c3aed ${volumeBar.value}%, #ddd ${volumeBar.value}%, #ddd 100%)`;
-  musicPlayer.volume = volumeBar.value / 100;
-
- 
+  // Carrega a playlist e exibe a primeira música
   carregarPlaylist("Todas");
 };
-
-volumeBar.addEventListener("input", () => {
-  musicPlayer.volume = volumeBar.value / 100;
-
-  volumeBar.style.background = `linear-gradient(to right, #7c3aed 0%, #7c3aed ${volumeBar.value}%, #ddd ${volumeBar.value}%, #ddd 100%)`;
-});
